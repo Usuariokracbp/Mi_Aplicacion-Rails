@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>MiAplicacion</title>
-    <%= csrf_meta_tags %>
-
+    	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> <!--estos codigos, stylesheet y javascript, al ejecutarse mandan un error, la solucion fue borrar del archivo application.js la instruccion //= require_tree .-->
+    	   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> <!--sin embargo esa solucion no es la indicada, aun estoy buscando otra forma de corregir el error, sin embargo para continuar con la leccion mantengo este fix-->
+          <%= csrf_meta_tags %>
+          <meta name="viewport" content="width=device-width, initial-scale=1"> <!--linea que sirve para que la pagina se vea en dispositivos moviles-->
   </head>
 
   <body>
-    <%= yield %>
+   <%= render 'layouts/header'%> <!--la instruccion render de ruby, indica que toma la informacion de la carpeta layouts del archivo _header.html.erb -->
+    <div class="container"><%= yield %></div>
   </body>
 </html>
